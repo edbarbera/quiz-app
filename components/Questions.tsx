@@ -1,27 +1,26 @@
-import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { QuizInput } from 'react-native-quiz-input';
 
-export default class App extends React.Component {
-  render() {
-    const onChange = ( data: any ) => {
-      console.log(data);
-      // your code goes here
-    };
+export default function Questions () {
+  const onChange = ( data: any ) => {
+    console.log(data);
+    // your code goes here
+  };
 
-    return (
-      <View style={styles.container}>
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.questionContainer}>
         <QuizInput
           wordStructure={ [ true, true, true, false, true, true, true ] }
           onChange={ onChange } 
         />
       </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  questionContainer: {
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
