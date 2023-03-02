@@ -11,8 +11,8 @@ export default function ImageViewer({ questionNumber }: { questionNumber: number
 
 const styles = StyleSheet.create({
   image: {
-    width: 440,
-    height: 200,
+    width: 350,
+    height: 150,
     resizeMode: 'contain'
   }
 })

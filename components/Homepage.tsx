@@ -1,25 +1,24 @@
-import { BrowserRouter } from 'react-router-dom';
+import { NativeRouter } from 'react-router-native';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 export default function Homepage ({ navigation }: { navigation: any }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <BrowserRouter>
+    <View style={{ flex: 1, alignItems: 'center' }}>
+      <NativeRouter>
         <View style={styles.container}>
           <Image
-            source={require('../assets/logo.png')}
-            style={{ width: 200, height: 85 }}
+            source={require('../assets/quiz-logo.png')}
+            style={{ width: 400, height: 100, padding: 50, margin: 50 }}
           />
-          <Text style={styles.welcome}>TEST QUIZ APP</Text>
+          <Text style={styles.welcome}>Maths Quiz</Text>
           <Text style={styles.paragraph}>
-            This is a quiz that has really advanced questions to answer. Good luck!
+            Test your maths skills. Good luck!
           </Text>
           <Pressable style={styles.button} onPress={() => navigation.navigate('Questions')}>
             <Text style={styles.buttonText}>Start Quiz</Text>
           </Pressable>
         </View>
-        
-      </BrowserRouter>
+      </NativeRouter>
     </View>
   );
 }
@@ -27,21 +26,21 @@ export default function Homepage ({ navigation }: { navigation: any }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: '#faf9f6',
+    alignItems: 'center',
   },
   welcome: {
     fontSize: 22,
-    fontWeight: "bold",
-    backgroundColor: "#3498db",
-    color: "white",
-    padding: 10
+    fontWeight: 'bold',
+    backgroundColor: '#76b5f5',
+    color: 'white',
+    padding: 10,
+    borderRadius: 10,
+    marginTop: 25
   },
   button: {
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: "#3498db",
+    backgroundColor: '#76b5f5',
     borderRadius: 10,
     padding: 10
   },
@@ -52,8 +51,8 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     fontSize: 16,
-    color: "#777",
-    textAlign: "center",
+    color: '#777',
+    textAlign: 'center',
     padding: 10,
     marginTop: 15,
     lineHeight: 25
