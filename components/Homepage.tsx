@@ -15,7 +15,7 @@ export default function Homepage ({ navigation }: { navigation: any }) {
             Test your maths skills. Good luck!
           </Text>
           <Pressable style={styles.button} onPress={() => navigation.navigate('Questions')}>
-            <Text style={styles.buttonText}>Start Quiz</Text>
+            <Text style={styles.buttonText}>Start</Text>
           </Pressable>
         </View>
       </NativeRouter>
@@ -30,31 +30,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   welcome: {
-    fontSize: 22,
+    fontSize: 34,
     fontWeight: 'bold',
     backgroundColor: '#76b5f5',
     color: 'white',
     padding: 10,
     borderRadius: 10,
-    marginTop: 25
+    marginTop: 10,
+    overflow: 'hidden'
   },
   button: {
     alignItems: 'center',
     backgroundColor: '#76b5f5',
     borderRadius: 10,
-    padding: 10
+    padding: 10,
+    marginTop: 30
   },
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: 16 
+    fontSize: 26 
   },
   paragraph: {
-    fontSize: 16,
+    fontSize: 22,
     color: '#777',
     textAlign: 'center',
     padding: 10,
-    marginTop: 15,
+    marginTop: 30,
     lineHeight: 25
   }
 });

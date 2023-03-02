@@ -5,6 +5,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import ImageViewer from './ImageViewer';
 import AnswerButton from './AnswerButton';
 import Page from './Page';
+import Result from './Result';
 
 import { questions } from './Questions'
 
@@ -13,6 +14,7 @@ export default function Quiz () {
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [questionList, setQuestionList] = useState<number[]>([]);
+  const [isCorrect, setIsCorrect] = useState(false);
 
   const generateQuestionList = (): number[] => {
     let nums = new Set<number>();
@@ -23,14 +25,12 @@ export default function Quiz () {
   }
 
   const answerSubmitted = (answer: number) => {
-    console.log('Submitted Answer: ', answer,);
-
     const questionIndex = questionList[currentQuestion];
-
-    console.log('Mark Scheme Answer ', questions[questionIndex].answer);
 
     if (answer == questions[questionIndex].answer) {
       setScore(score + 1);
+      setIsCorrect(true);
+      delayFunction();
     }
 
     if (currentQuestion + 1 < questions.length) {
@@ -46,6 +46,17 @@ export default function Quiz () {
     setShowResults(false);
   };
 
+  const onModalClose = () => {
+    setIsCorrect(false);
+  }
+
+  const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
+
+  const delayFunction = async () => {
+    await delay(1000);
+    setIsCorrect(false);
+  }
+
   useEffect(() => {
     setQuestionList(generateQuestionList());
   }, [])
@@ -60,7 +71,7 @@ export default function Quiz () {
         {showResults ? (
           <View style={styles.container}>
             <Page 
-              title={"Results"}
+              title={'Results'}
               text={`${score} out of ${questions.length} correct - (${(score/questions.length)*100}%)`}
             />
             <Pressable style={styles.restartButton} onPress={() => restartGame()}>
@@ -70,13 +81,14 @@ export default function Quiz () {
         ) : (
           <View style={styles.container}>
             <Page 
-              title={`Question - ${currentQuestion+1}`}
-              text={"Count the number of coloured circles and click on the correct answer!"}
+              title={`Question: ${currentQuestion+1}`}
+              text={'How many coloured circles are there?'}
             />
             <ImageViewer
               questionNumber={questionList[currentQuestion]}
             />
             <AnswerButton onPress={answerSubmitted} />
+            <Result isVisible={isCorrect} onClose={onModalClose} />
           </View>
         )}
       </NativeRouter>
@@ -94,7 +106,7 @@ const styles = StyleSheet.create({
   },
   restartButton: {
     alignItems: 'center',
-    backgroundColor: "#76b5f5",
+    backgroundColor: '#76b5f5',
     borderRadius: 10,
     padding: 10,
     marginTop: 20
@@ -105,7 +117,7 @@ const styles = StyleSheet.create({
     fontSize: 16 
   },
   title: { 
-    fontSize: 26,
+    fontSize: 30,
     fontWeight: 'bold',
     backgroundColor: '#ede8ba',
     color: 'black',

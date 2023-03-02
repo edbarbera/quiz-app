@@ -11,7 +11,7 @@ export default function Page({ title, text }: { title: string, text: string }) {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 18, 
+    fontSize: 22, 
     fontWeight: 'bold', 
     backgroundColor: '#76b5f5', 
     color: 'white', 
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden'
   },
   questionLabel: {
-    fontSize: 14,
+    fontSize: 20,
     fontWeight: 'bold',
     alignItems: 'center',
     marginLeft: 30,

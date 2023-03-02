@@ -6,6 +6,7 @@ export default function AnswerButton({ onPress }: { onPress: (answer: number) =>
 
   return (
     <FlatList
+      style={{ marginTop: 20 }}
       horizontal
       scrollEnabled={false}
       data={answers}
@@ -22,8 +23,6 @@ export default function AnswerButton({ onPress }: { onPress: (answer: number) =>
 
 const styles = StyleSheet.create({
   numberInput: {
-    flexShrink: 1,
-    maxWidth: '100%',
     height: 52,
     backgroundColor: 'black',
     borderRadius: 10,
