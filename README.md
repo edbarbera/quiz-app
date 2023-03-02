@@ -7,5 +7,16 @@ This is a simple maths quiz app for students to practice subitising. Currently t
 To get the app booted locally, simply run the following command in your terminal:
 
 ```bash
-npm run full-start
+npm run cold-start
 ```
+
+Once you've run the above command once, future booting of the app can be done via:
+
+```bash
+npm run start
+```
+
+### Notes
+Has been tested on the following devices:
+- iPhone 14 Pro Max (iOS 16.3.1)
+- Windows 10 Chrome (110.0.5481.178)
