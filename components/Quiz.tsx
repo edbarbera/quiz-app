@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import ImageViewer from './ImageViewer';
+import SubmitButton from './SubmitButton';
 
 import { questions } from './Questions'
 
@@ -20,8 +21,8 @@ export default function Quiz () {
     return [...nums];
   }
 
-  const answerSubmitted = (isCorrect: boolean) => {
-    if (isCorrect) {
+  const answerSubmitted = () => {
+    if (answer == questions[currentQuestion].answer) {
       setScore(score + 1);
     }
 
@@ -60,7 +61,7 @@ export default function Quiz () {
       </Text>
       {showResults ? (
         <View style={styles.results}>
-          <Text style={{ fontSize: 18, fontWeight: "bold", backgroundColor: "#3498db", color: "white", padding: 10 }}>
+          <Text style={{ fontSize: 18, fontWeight: "bold", backgroundColor: "#3498db", color: "white", padding: 10, borderRadius: 18, margin: 20 }}>
             Results
           </Text>
           <Text>
@@ -85,6 +86,9 @@ export default function Quiz () {
             placeholder='Count the circles'
             keyboardType={'numeric'}
             onChangeText={(text) => onChangeText(text)}
+          />
+          <SubmitButton
+            onPress={answerSubmitted()}
           />
         </View>
       )}
