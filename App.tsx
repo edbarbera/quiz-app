@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={{ flex: 1, maxWidth: '100%', flexWrap: 'wrap' }}>
+    <View style={{ flex: 1 }}>
       <NavigationContainer theme={DefaultTheme}>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Homepage} options={{ title: "Home" }} />

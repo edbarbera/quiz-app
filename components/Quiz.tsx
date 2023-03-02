@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     color: 'black',
     padding: 15,
     borderRadius: 18,
-    marginTop: 15
+    marginTop: 15,
+    overflow: 'hidden'
   }
 })
