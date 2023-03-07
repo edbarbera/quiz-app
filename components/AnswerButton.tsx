@@ -13,7 +13,7 @@ export default function AnswerButton({ onPress }: { onPress: (answer: number) =>
       renderItem={({ item }) => {
         return (
           <Pressable style={styles.numberInput} onPress={() => onPress(item)}>
-            <Text style={styles.numberButtonLabel}>{item}</Text>    
+            <Text style={styles.numberButtonLabel}>{item}</Text>
           </Pressable>
         )
       }}

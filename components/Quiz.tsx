@@ -41,6 +41,7 @@ export default function Quiz () {
   };
 
   const restartGame = () => {
+    setQuestionList(generateQuestionList());
     setScore(0);
     setCurrentQuestion(0);
     setShowResults(false);
